@@ -1,0 +1,68 @@
+<html>
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<h1 class="text-center"><%= title %></h1>
+
+			<form  method="post" action="/add">
+				
+				<legend>
+					Agregar una tarea
+				</legend>
+
+				<div class="form-group">
+				<label for="titulo">Titulo</label>
+				<input type="text" id="titulo"  name="titulo" class="form-control"></div>
+
+				<div class="form-group">
+				<label for="descripcion">Descripcion</label>
+				<input type="text"  name="descripcion" id="descripcion" class="form-control"></div>
+				
+				<button class="btn btn-primary">Agregar</button>
+			</form>	
+
+			<hr>
+
+			<table class="table table-bordered table-response">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Title</th>
+						<th>Description</th>
+						<th>Operations</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					
+					<%  for(var i=0; i<tasks.length;i++) { %>
+						<tr>
+
+							<td><%= i+1 %></td>
+							<td><%= tasks[i].title %></td>
+							<td><%= tasks[i].description %></td>
+						
+						</tr>
+
+					<%  } %>
+
+
+				</tbody>
+			</table>
+
+		</div>
+
+		<script>
+
+			var titulo = document.getElementById('titulo');
+			titulo.focus();
+
+		</script>
+		
+	</body>
+
+</html>
